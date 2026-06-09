@@ -1,0 +1,28 @@
+{
+  "reviews": [
+    {
+      "name": "Sophire Robson",
+      "initial": "S",
+      "source": "Google Review",
+      "icon": "fab fa-google",
+      "stars": 5,
+      "text": "The best restaurant. From the moment we stepped in, we were enveloped in an inviting atmosphere and greeted with warm smiles. Absolutely blown away by every dish."
+    },
+    {
+      "name": "Mohammed Alam",
+      "initial": "M",
+      "source": "Yelp Review",
+      "icon": "fab fa-yelp",
+      "stars": 5,
+      "text": "Simply delicious — they serve halal food and exceeded my expectations on all fronts. The ambiance was cozy and relaxed, perfect for our anniversary dinner. Each dish beautifully presented."
+    },
+    {
+      "name": "Jon Cantrel",
+      "initial": "J",
+      "source": "Facebook Review",
+      "icon": "fab fa-facebook",
+      "stars": 5,
+      "text": "Such a treat! Very upscale atmosphere with friendly service and a very diverse menu. The ambiance is a mixture of class and culture that really makes the meal enjoyable."
+    }
+  ]
+}

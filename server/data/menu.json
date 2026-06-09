@@ -1,0 +1,927 @@
+{
+  "sections": [
+    {
+      "id": "starters",
+      "icon": "fas fa-leaf",
+      "title": "Starters",
+      "subtitle": "Begin your journey with our bold appetizers",
+      "note": null,
+      "items": [
+        {
+          "name": "Samosa",
+          "desc": "Fried crispy shell with savory filling of potatoes and peas. Served with mint chutney.",
+          "price": "$7",
+          "img": "/uploads/1781041562555-samosa.webp",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Samosa Chaat",
+          "desc": "Indian savory snack topped with onion, tomatoes, yogurt, mint and tamarind chutney.",
+          "price": "$11",
+          "img": "/uploads/1781041630690-Samosa-Chaat.jpg",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Crispy Okra Chaat",
+          "desc": "Crispy okra topped with onion, tomatoes, yogurt, mint and tamarind chutney.",
+          "price": "$11",
+          "img": "/uploads/1781042108684-Kurkure-Bhindi-500x375.webp",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Paani Puri",
+          "desc": "Fried crisp dough filled with flavored water, tamarind chutney, onions, chick-peas and potatoes.",
+          "price": "$8",
+          "img": "/uploads/1781042154589-pani_puri.webp",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Avocado Jhalmuri",
+          "desc": "Potato, avocado, peanuts and rice puffs with onion, tomato and house special sauce — a must try!",
+          "price": "$8",
+          "img": "https://images.unsplash.com/photo-1547592180-85f173990554?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Lassoni Gobi",
+          "desc": "Cauliflower tossed with garlic flakes, served in roasted garlic sweet and tangy tomato sauce.",
+          "price": "$12",
+          "img": "/uploads/1781042357483-lasson_gobi.jpg",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Mix Veg Pakora",
+          "desc": "Batter-fried veggies, touched with Indian spices. Perfect crispy starter.",
+          "price": "$1000",
+          "img": "/uploads/1781042270835-vegetable-pakora-42.jpg",
+          "spicy": false,
+          "vegan": true,
+          "label": null
+        },
+        {
+          "name": "Chicken 65",
+          "desc": "Deep fried chicken originating from Chennai, a spicy quick snack packed with bold South Indian flavors.",
+          "price": "$12",
+          "img": "/uploads/1781042300161-chicken-65-restaurant-style.jpg",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Gobi / Chicken Manchurian",
+          "desc": "Deep fried cauliflower or chicken cubes tossed with tangy sauce and Indian spices.",
+          "price": "$12",
+          "img": "/uploads/1781042406343-gobichicken.jpg",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Chicken 555",
+          "desc": "Deep fried chicken cubes tossed with house special green chilli sauce, ketchup, cashew nuts and curry leaves.",
+          "price": "$12",
+          "img": "/uploads/1781042443843-Chick555.jpg",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Goat Sukkha",
+          "desc": "Bone-in goat cooked with onion and tomatoes, tempered with South Indian spices, coconut powder and cashew nuts.",
+          "price": "$14",
+          "img": "/uploads/1781042524333-goat-sukka.png",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        }
+      ],
+      "tab": "Starters"
+    },
+    {
+      "id": "himalayan",
+      "icon": "fas fa-mountain",
+      "title": "From Snowy Himalayas",
+      "subtitle": "Authentic Nepali & Tibetan street favorites",
+      "note": "Served with long-grain Basmati rice · Add Naan & Yellow Daal +$6",
+      "items": [
+        {
+          "name": "Kathmandu Chilli",
+          "desc": "Choice of shrimp (+$3)/chicken/cottage cheese or cauliflower — deep fried with tangy Nepali spices.",
+          "price": "$12",
+          "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=420&fit=crop&q=82",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Nepali Chowmein",
+          "desc": "Nepali-style noodles mixed with seasonal veggies. Add chicken +$1.",
+          "price": "$14",
+          "img": "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Everest Thukpa",
+          "desc": "Tibetan hot noodle soup (chicken/veg) — a favorite of Everest climbers. Hearty and warming.",
+          "price": "$13",
+          "img": "https://images.unsplash.com/photo-1547592180-85f173990554?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Sherpa Sizzler",
+          "desc": "Sizzling chicken from the tandoor oven served with Nepali-style noodles on a hot iron plate.",
+          "price": "$13",
+          "img": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Bhaktapur Fried Rice",
+          "desc": "Special fried rice mixed with seasonal veggies. Add chicken +$1.",
+          "price": "$13",
+          "img": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        }
+      ],
+      "tab": "Himalayan"
+    },
+    {
+      "id": "tandoor",
+      "icon": "fas fa-fire",
+      "title": "Tandoor Specials",
+      "subtitle": "Cooked in clay oven fired to a high heat by charcoal",
+      "note": "Add Naan & Yellow Daal +$6",
+      "items": [
+        {
+          "name": "Tandoori Vegetables",
+          "desc": "Herbs marinated cauliflower, onions, potatoes, bell peppers and tomatoes roasted to perfection!",
+          "price": "$16",
+          "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": true,
+          "label": null
+        },
+        {
+          "name": "Sofiya Paneer",
+          "desc": "Marinated cheese cubes roasted to perfection with Indian spices in the clay oven.",
+          "price": "$17",
+          "img": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Malai Chicken",
+          "desc": "Tender chunks of boneless chicken marinated with cheese and spices, slow-cooked in the tandoor.",
+          "price": "$17",
+          "img": "https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Chicken Tikka",
+          "desc": "Tender chunks of boneless chicken marinated with yogurt and spices, barbecued in clay oven.",
+          "price": "$17",
+          "img": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Achari Chicken",
+          "desc": "Chicken cubes marinated in savory pickled spices — bold, tangy and spicy.",
+          "price": "$17",
+          "img": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&h=420&fit=crop&q=82",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Tandoori Chicken",
+          "desc": "Boned chicken marinated in yogurt with ginger, garlic and herbs, barbecued in clay oven. (4 pcs / 8 pcs)",
+          "price": "$16 / $21",
+          "img": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Tandoori Wings",
+          "desc": "Boned wings marinated in yogurt with ginger, garlic and herbs — barbecued in clay oven. (7 pcs)",
+          "price": "$18",
+          "img": "https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Murgh Reshami Kebab",
+          "desc": "Spiced ground chicken kebab cooked in clay oven to perfection.",
+          "price": "$16",
+          "img": "https://images.unsplash.com/photo-1555126634-323283e090fa?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Lamb Seekh Kebab",
+          "desc": "Ground lamb infused with herbs and spices, shaped on skewers and roasted in the clay oven.",
+          "price": "$17",
+          "img": "https://images.unsplash.com/photo-1555126634-323283e090fa?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Adraki Lamb Chops",
+          "desc": "Ginger marinated lamb chops, roasted to fineness, served with cumin tempered potatoes. (4 chops)",
+          "price": "$25",
+          "img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Tandoori Shrimp",
+          "desc": "Prawns marinated in yogurt & spices, served with cumin tempered potatoes.",
+          "price": "$18",
+          "img": "https://images.unsplash.com/photo-1510130387422-82bed34b37e9?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Salmon Tikka",
+          "desc": "Grilled salmon fillet suffused with pleasant herbs and spices.",
+          "price": "$18",
+          "img": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Tandoori Pomfret",
+          "desc": "Whole bone-in pomfret suffused with pleasant herbs and spices, served with seasonal veggies.",
+          "price": "$18",
+          "img": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Tandoori Quadruple Play",
+          "desc": "Combination of four grilled delicacies: Seekh Kebab, Malai Chicken, Tandoori Chicken and Shrimp.",
+          "price": "$24",
+          "img": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        }
+      ],
+      "tab": "Tandoor"
+    },
+    {
+      "id": "vegetarian",
+      "icon": "fas fa-seedling",
+      "title": "Vegetarian Delux",
+      "subtitle": "Plant-based classics — can be made vegan upon request",
+      "note": "All items served with long-grain Basmati rice · Add Naan & Yellow Daal +$6",
+      "items": [
+        {
+          "name": "Dal Fry",
+          "desc": "Combination of yellow and red lentils tempered with garlic, cumin & tomato in butter.",
+          "price": "$13",
+          "img": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": true,
+          "label": null
+        },
+        {
+          "name": "Dal Himalayan",
+          "desc": "Traditional black lentil and red kidney beans simmered on low fire with red chilies, ginger, garlic and tomatoes.",
+          "price": "$13",
+          "img": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Malai Kofta",
+          "desc": "Classic north Indian dish from Mughlai cuisine. Cottage cheese dumplings stuffed with nuts, in cashew nut sauce.",
+          "price": "$15.95",
+          "img": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Chana Pindi",
+          "desc": "Preparation of chickpeas in onions and tomato gravy with Chef's special sauce. Recommended with bhatura.",
+          "price": "$15.95",
+          "img": "https://images.unsplash.com/photo-1546549032-9571cd6b27df?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Kadai Paneer",
+          "desc": "Sautéed cottage cheese cubes tempered with cumin seeds and blended with Chef's special spices and veggies.",
+          "price": "$15.95",
+          "img": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Shahi Paneer",
+          "desc": "Indian cottage cheese in a thick smooth gravy of cream, cashew, tomato and house spices.",
+          "price": "$15.95",
+          "img": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Saag Paneer / Saag Aloo",
+          "desc": "Fresh spinach cooked with garlic, ginger, onions with a choice of cheese or potatoes.",
+          "price": "$15.95",
+          "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Veg Kolhapuri",
+          "desc": "Seasonal vegetables cooked with special blend of sauces and Indian spices. Spicy dish from Kolhapur.",
+          "price": "$15.95",
+          "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=420&fit=crop&q=82",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Veg Jalfrezi",
+          "desc": "Seasonal vegetables cooked with special blend of sauces and Indian spices.",
+          "price": "$15.95",
+          "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=420&fit=crop&q=82",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        }
+      ],
+      "tab": "Vegetarian"
+    },
+    {
+      "id": "chicken",
+      "icon": "fas fa-drumstick-bite",
+      "title": "Chicken Lovers",
+      "subtitle": "Tender, marinated and slow-cooked to perfection",
+      "note": "All items served with long-grain Basmati rice · Add Naan & Yellow Daal +$6",
+      "items": [
+        {
+          "name": "The Classic Butter Chicken",
+          "desc": "Roasted marinated chicken breast slowly simmered in a rich creamy cashew tomato sauce. Utterly Butterly Delicious.",
+          "price": "$16.95",
+          "img": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Mr. Chicken Tikka Masala",
+          "desc": "Tender chicken roasted in clay oven with chopped tomato and onion gravy, topped with bell peppers.",
+          "price": "$16.95",
+          "img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Velvety Chicken Korma",
+          "desc": "Tender chicken cooked in mild fragrant cashew gravy. Rich, creamy and mildly spiced.",
+          "price": "$16.95",
+          "img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Rustic Kadai",
+          "desc": "A rustic dish of chicken sautéed on high heat with chopped onion, bell peppers and spices.",
+          "price": "$16.95",
+          "img": "https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=600&h=420&fit=crop&q=82",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Chicken Curry",
+          "desc": "Fine chicken cubes cooked in onion & tomato sauce, garnished with coriander.",
+          "price": "$16.95",
+          "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Chicken Jalfrezi",
+          "desc": "Chicken cooked with special blend of spices & assorted vegetables. Bold and aromatic.",
+          "price": "$16.95",
+          "img": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&h=420&fit=crop&q=82",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Chicken Spinach",
+          "desc": "Tender boneless chicken morsels cooked with spinach with a hint of fenugreek.",
+          "price": "$16.95",
+          "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Chicken Vindaloo",
+          "desc": "Chicken cubes with potato in chilli pepper sauce finished with white vinegar — Goan influence.",
+          "price": "$16.95",
+          "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=420&fit=crop&q=82",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Chicken Kolhapuri",
+          "desc": "Chicken cooked with special blend of spices & vegetables. Spicy dish originating from Kolhapur.",
+          "price": "$16.95",
+          "img": "https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=600&h=420&fit=crop&q=82",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        }
+      ],
+      "tab": "Chicken"
+    },
+    {
+      "id": "lamb",
+      "icon": "fas fa-star",
+      "title": "Lamb & Goat Delights",
+      "subtitle": "Slow-cooked, tender and richly spiced",
+      "note": "All items served with long-grain Basmati rice · Add Naan & Yellow Daal +$6",
+      "items": [
+        {
+          "name": "Lamb Curry",
+          "desc": "Lamb cubes cooked in onion and tomato sauce garnished with coriander.",
+          "price": "$17.95",
+          "img": "https://images.unsplash.com/photo-1596797038530-2c107aa7497d?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Lamb Vindaloo",
+          "desc": "Lamb cubes with potato in chilli pepper sauce finished with white vinegar. Influenced by Goan spices.",
+          "price": "$17.95",
+          "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=420&fit=crop&q=82",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Rogan Josh",
+          "desc": "Lamb cubes cooked with onion, tomato & yogurt base with a blend of aromatic spices. A Kashmiri classic.",
+          "price": "$17.95",
+          "img": "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Lamb Korma",
+          "desc": "Tender lamb cubes cooked in cashew curry sauce. Rich, creamy and mildly spiced.",
+          "price": "$17.95",
+          "img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Goat Curry",
+          "desc": "Bone-in goat cooked in onion and tomato sauce flavored with coriander seeds.",
+          "price": "$17.95",
+          "img": "https://images.unsplash.com/photo-1596797038530-2c107aa7497d?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Nalli Gosht",
+          "desc": "Himalayan special lamb shanks — a signature dish from our executive chef. Slow-braised to fall-off-the-bone perfection.",
+          "price": "$23",
+          "img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        }
+      ],
+      "tab": "Lamb & Goat"
+    },
+    {
+      "id": "seafood",
+      "icon": "fas fa-fish",
+      "title": "Savory Seafood",
+      "subtitle": "Ocean-fresh, boldly spiced",
+      "note": "Served with long-grain Basmati rice · Add Naan & Yellow Daal +$6",
+      "items": [
+        {
+          "name": "Shrimp Jalfrezi",
+          "desc": "Shrimp cooked with a blend of spices & assorted vegetables.",
+          "price": "$16.95",
+          "img": "https://images.unsplash.com/photo-1510130387422-82bed34b37e9?w=600&h=420&fit=crop&q=82",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Shrimp Curry",
+          "desc": "Shrimp cooked with special blend of spices, onion and grilled tomato.",
+          "price": "$16.95",
+          "img": "https://images.unsplash.com/photo-1510130387422-82bed34b37e9?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Shrimp Malai Curry",
+          "desc": "Shrimp cooked in aromatic cashew curry sauce with coconut milk.",
+          "price": "$16.95",
+          "img": "https://images.unsplash.com/photo-1510130387422-82bed34b37e9?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Fish Curry",
+          "desc": "Fish cooked with onion, grilled tomato in flavorful sauce.",
+          "price": "$16.95",
+          "img": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Goan Fish",
+          "desc": "Marinated fish with curry leaves and Indian spices originating from the west Indian coast.",
+          "price": "$16.95",
+          "img": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&h=420&fit=crop&q=82",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        }
+      ],
+      "tab": "Seafood"
+    },
+    {
+      "id": "biryani",
+      "icon": "fas fa-bowl-rice",
+      "title": "Special Dum Biryanis",
+      "subtitle": "Slow-cooked, aromatic rice layered with your choice of protein",
+      "note": null,
+      "items": [
+        {
+          "name": "Dum Biryani",
+          "desc": "Fragrant basmati rice slow-cooked with aromatic spices. Choose: Veg $14, Paneer $15, Egg $13, Chicken $15, Goat $17, Lamb $17.",
+          "price": "$13–$17",
+          "img": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Gongura Dum Biryani",
+          "desc": "Biryani with tangy Gongura (sorrel) leaves — a bold South Indian specialty. Choose: Veg, Paneer, Egg, Chicken, Goat or Lamb.",
+          "price": "$13–$17",
+          "img": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&h=420&fit=crop&q=82",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        }
+      ],
+      "tab": "Biryani"
+    },
+    {
+      "id": "south",
+      "icon": "fas fa-pepper-hot",
+      "title": "The Taste of the South",
+      "subtitle": "Bold South Indian flavors — coconut, curry leaves and black pepper",
+      "note": "All gravy items served with long-grain Basmati rice · Add Naan & Yellow Daal +$6",
+      "items": [
+        {
+          "name": "Andhra Chicken Curry",
+          "desc": "Chicken cooked with South Indian spices tempered with curry leaves. Bold and fiery.",
+          "price": "$16.95",
+          "img": "https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=600&h=420&fit=crop&q=82",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Chicken / Goat Chettinad",
+          "desc": "Classic South Indian recipe from Chettinad, cooked in coconut milk with choice of chicken or bone-in goat.",
+          "price": "$16.95/$17.95",
+          "img": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&h=420&fit=crop&q=82",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Chicken / Goat Pepper Fry",
+          "desc": "Choice of chicken or bone-in goat with freshly chopped onions blended with South Indian herbs and black pepper spice.",
+          "price": "$16.95/$17.95",
+          "img": "https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=600&h=420&fit=crop&q=82",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Gongura Chicken / Lamb / Goat",
+          "desc": "Choice of chicken/lamb/goat cooked with sour Gongura leaves — a bold South Indian specialty.",
+          "price": "$16.95/$17.95",
+          "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=420&fit=crop&q=82",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        }
+      ],
+      "tab": "South Indian"
+    },
+    {
+      "id": "specials",
+      "icon": "fas fa-crown",
+      "title": "The Himalayan Specials",
+      "subtitle": "Executive chef's exclusive creations",
+      "note": "Served with long-grain Basmati rice · Add Naan & Yellow Daal +$6",
+      "items": [
+        {
+          "name": "Methi Malai Chicken",
+          "desc": "Thick, mellow and creamy gravy with cashews and fresh fenugreek leaves. A super-hit combination.",
+          "price": "$18",
+          "img": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Nalli Gosht",
+          "desc": "Himalayan special lamb shanks — a signature dish from our executive chef. Slow-braised to fall-off-the-bone perfection.",
+          "price": "$23",
+          "img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        }
+      ],
+      "tab": "Specials"
+    },
+    {
+      "id": "bread",
+      "icon": "fas fa-bread-slice",
+      "title": "Bread Selections",
+      "subtitle": "Popular Indian leavened breads baked fresh in the clay oven",
+      "note": null,
+      "items": [
+        {
+          "name": "Plain Naan",
+          "desc": "Classic plain leavened soft bread baked on the wall lining of the clay oven.",
+          "price": "$3",
+          "img": "https://images.unsplash.com/photo-1601050690117-a5ce26c78a35?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Garlic Naan",
+          "desc": "Soft leavened bread topped with freshly minced garlic and butter.",
+          "price": "$3.50",
+          "img": "https://images.unsplash.com/photo-1601050690117-a5ce26c78a35?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Pesto Naan",
+          "desc": "Soft naan bread topped with aromatic basil pesto, baked to golden perfection.",
+          "price": "$3.50",
+          "img": "https://images.unsplash.com/photo-1601050690117-a5ce26c78a35?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Stuffed Breads",
+          "desc": "Choose from Bhattura (fried bread), Lachha Paratha, Pudina Paratha, Aloo Paratha or Onion Kulcha.",
+          "price": "$4",
+          "img": "https://images.unsplash.com/photo-1601050690117-a5ce26c78a35?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Cheese Naan / Kashmiri Naan",
+          "desc": "Cheese naan stuffed with rich melted cheese, or Kashmiri naan filled with nuts and sweet mixed fruit.",
+          "price": "$5",
+          "img": "https://images.unsplash.com/photo-1601050690117-a5ce26c78a35?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Himalayan Flames Naan",
+          "desc": "Our signature naan stuffed with ground chicken, onions and garlic — a house specialty!",
+          "price": "$5",
+          "img": "https://images.unsplash.com/photo-1601050690117-a5ce26c78a35?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        }
+      ],
+      "tab": "Bread"
+    },
+    {
+      "id": "soups",
+      "icon": "fas fa-mug-hot",
+      "title": "Soups & Side Orders",
+      "subtitle": "Warm beginnings and perfect accompaniments",
+      "note": null,
+      "items": [
+        {
+          "name": "Tomato Shorba",
+          "desc": "Fresh tomato reduction flavored with aromatic herbs — sure to ignite your appetite!",
+          "price": "$6",
+          "img": "https://images.unsplash.com/photo-1547592180-85f173990554?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Chicken Egg Drop Soup",
+          "desc": "Appetizing soup made with egg, chicken broth and fresh greens.",
+          "price": "—",
+          "img": "https://images.unsplash.com/photo-1547592180-85f173990554?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Papadum",
+          "desc": "Roasted crispy Punjabi lentil cracker served with chutney.",
+          "price": "$3",
+          "img": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Cucumber Raita",
+          "desc": "Yogurt mixed with fresh cucumbers, topped with roasted cumin.",
+          "price": "—",
+          "img": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Cumin Rice",
+          "desc": "Special rice blended with cumin seeds.",
+          "price": "$3",
+          "img": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Masala French Fries",
+          "desc": "Crispy French fries tossed with Indian masala spices. A crowd pleaser!",
+          "price": "$6",
+          "img": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&h=420&fit=crop&q=82",
+          "spicy": true,
+          "vegan": false,
+          "label": null
+        }
+      ],
+      "tab": "Soups & Sides"
+    },
+    {
+      "id": "desserts",
+      "icon": "fas fa-ice-cream",
+      "title": "Desserts & Drinks",
+      "subtitle": "Sweet endings and refreshing beverages (All desserts contain nuts)",
+      "note": null,
+      "items": [
+        {
+          "name": "Rasmalai",
+          "desc": "Soft cheese patties soaked in chilled sweetened milk infused with cardamom and saffron.",
+          "price": "$6",
+          "img": "https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Gajar Ka Halwa",
+          "desc": "Traditional Indian carrot pudding cooked with milk, sugar, cardamom and nuts.",
+          "price": "$5",
+          "img": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": "Carrot Pudding"
+        },
+        {
+          "name": "Kheer",
+          "desc": "Creamy rice pudding slow-cooked in milk with cardamom and saffron.",
+          "price": "$5",
+          "img": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": "Rice Pudding"
+        },
+        {
+          "name": "Gulab Jamun",
+          "desc": "Soft milk-solid dumplings soaked in sugar syrup flavored with cardamom and rose water.",
+          "price": "$5",
+          "img": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Mango Lassi",
+          "desc": "Rich, creamy yogurt drink blended with fresh mango pulp.",
+          "price": "$5",
+          "img": "https://images.unsplash.com/photo-1527661591475-527312dd65f5?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Special House Lemonade",
+          "desc": "Peach / Strawberry / Raspberry / Mango — your choice!",
+          "price": "$4",
+          "img": "https://images.unsplash.com/photo-1527661591475-527312dd65f5?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        },
+        {
+          "name": "Soft Drinks",
+          "desc": "Coke, Diet Coke, Sprite, or Lemonade.",
+          "price": "$2",
+          "img": "https://images.unsplash.com/photo-1527661591475-527312dd65f5?w=600&h=420&fit=crop&q=82",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        }
+      ],
+      "tab": "Desserts & Drinks"
+    },
+    {
+      "id": "popular-mq734bul",
+      "icon": "fas fa-fire-flame-curved",
+      "title": "Popular",
+      "subtitle": "Our guests' all-time favourites",
+      "note": null,
+      "items": [
+        {
+          "name": "Samosa",
+          "desc": "",
+          "price": "$ 7.00",
+          "img": "",
+          "spicy": false,
+          "vegan": false,
+          "label": null
+        }
+      ],
+      "tab": "Popular"
+    }
+  ]
+}

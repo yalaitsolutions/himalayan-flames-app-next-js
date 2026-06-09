@@ -1,0 +1,27 @@
+{
+  "name": "Himalayan Flames",
+  "tagline": "Nepali & Indian Cuisine",
+  "phone": "(313) 908-1193",
+  "phoneRaw": "3139081193",
+  "email": "info@thehimalayanflames.com",
+  "address": { "line1": "22266 Michigan Ave", "line2": "Dearborn, MI 48124" },
+  "hours": [
+    { "day": "Monday",    "key": "mon", "time": "11:00 AM – 2:30 PM, 4:30 – 9:30 PM" },
+    { "day": "Tuesday",   "key": "tue", "time": "11:00 AM – 3:00 PM, 5:00 – 9:30 PM" },
+    { "day": "Wednesday", "key": "wed", "time": "11:00 AM – 3:00 PM, 5:00 – 9:30 PM" },
+    { "day": "Thursday",  "key": "thu", "time": "11:00 AM – 3:00 PM, 5:00 – 9:30 PM" },
+    { "day": "Friday",    "key": "fri", "time": "11:00 AM – 2:30 PM, 4:30 – 9:30 PM" },
+    { "day": "Saturday",  "key": "sat", "time": "11:00 AM – 2:30 PM, 4:30 – 9:30 PM" },
+    { "day": "Sunday",    "key": "sun", "time": "12:00 PM – 2:30 PM, 4:30 – 9:00 PM" }
+  ],
+  "links": {
+    "clover": "https://www.clover.com/online-ordering/the-himalayan-flames-dearborn",
+    "ubereats": "https://www.ubereats.com/store/the-himalayan-flames/WDKvhQUcSbeyZNHpC0xGgg",
+    "grubhub": "https://www.grubhub.com/restaurant/the-himalayan-flames-22266-michigan-ave-dearborn/1445618",
+    "doordash": "https://www.doordash.com/store/the-himalayan-flames-(gaurishankar-inc)-dearborn-788261/",
+    "facebook": "https://www.facebook.com/himalayanflames/",
+    "instagram": "https://www.instagram.com/thehimalayanflames/",
+    "maps": "https://www.google.com/maps/place/The+Himalayan+Flames/@42.3173,-83.1935,15z",
+    "googleReviews": "https://www.google.com/search?q=himalayan+flames+dearborn"
+  }
+}
