@@ -1,13 +1,22 @@
 {
   "name": "himalayan-flames",
-  "version": "1.0.0",
-  "description": "Himalayan Flames — React (Vite) frontend + Node/Express backend with local file storage.",
+  "version": "2.0.0",
   "private": true,
+  "description": "Himalayan Flames — Next.js 15 (App Router) full-stack app with MongoDB, Mongoose, and NextAuth.",
+  "type": "module",
   "scripts": {
-    "install:all": "npm --prefix server install && npm --prefix client install",
-    "build": "npm --prefix client run build",
-    "start": "npm --prefix server start",
-    "dev:server": "npm --prefix server run dev",
-    "dev:client": "npm --prefix client run dev"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "seed": "node --env-file=.env.local scripts/seed.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "mongoose": "^8.9.5",
+    "next": "^15.1.6",
+    "next-auth": "^5.0.0-beta.25",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   }
 }

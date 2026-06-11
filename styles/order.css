@@ -1,0 +1,246 @@
+    /* ── Full-viewport layout, zero scroll ── */
+    
+
+    .order-page {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: linear-gradient(160deg, #0d0d0d 0%, #180700 50%, #0d0d0d 100%);
+      position: relative;
+    }
+
+    /* Subtle mountain silhouette backdrop */
+    .order-page::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 900'%3E%3Cpath fill='rgba(139,0,0,0.07)' d='M0,600 L200,320 L400,480 L600,200 L800,380 L1000,140 L1200,340 L1440,260 L1440,900 L0,900 Z'/%3E%3Cpath fill='rgba(212,175,55,0.04)' d='M0,700 L160,450 L360,560 L560,320 L740,480 L940,280 L1120,440 L1300,350 L1440,420 L1440,900 L0,900 Z'/%3E%3C/svg%3E") bottom/cover no-repeat;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── NAV ── */
+    .order-page .nav { position: relative; z-index: 100; }
+    /* Override: nav doesn't need to be fixed here since page doesn't scroll */
+    .order-page .nav.scrolled { background: rgba(17,17,17,0.97); }
+
+    /* ── HEADER ── */
+    .order-header {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 1.6rem 1rem 0.8rem;
+      flex-shrink: 0;
+    }
+    .order-header .overline {
+      display: inline-block;
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+    .order-header h1 {
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      margin-bottom: 0.3rem;
+    }
+    .order-header p {
+      color: var(--muted);
+      font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ── CARDS ── */
+    .order-cards-wrap {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem 1.25rem;
+    }
+
+    .order-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      width: 100%;
+      max-width: 860px;
+    }
+
+    .order-card {
+      background: rgba(26,26,26,0.92);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 1.75rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1),
+                  border-color 0.3s ease,
+                  box-shadow 0.3s ease;
+    }
+    .order-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .order-card:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 20px 55px rgba(0,0,0,0.6);
+    }
+    .order-card:hover::before { opacity: 1; }
+
+    /* Per-brand colours */
+    .card-direct   { border-color: rgba(212,175,55,0.2); }
+    .card-direct::before { background: linear-gradient(135deg, rgba(212,175,55,0.09), transparent 60%); }
+    .card-direct:hover   { border-color: var(--gold); box-shadow: 0 20px 55px rgba(212,175,55,0.15); }
+
+    .card-uber     { border-color: rgba(6,202,140,0.15); }
+    .card-uber::before { background: linear-gradient(135deg, rgba(6,202,140,0.08), transparent 60%); }
+    .card-uber:hover   { border-color: #06ca8c; box-shadow: 0 20px 55px rgba(6,202,140,0.12); }
+
+    .card-grubhub  { border-color: rgba(244,71,41,0.15); }
+    .card-grubhub::before { background: linear-gradient(135deg, rgba(244,71,41,0.08), transparent 60%); }
+    .card-grubhub:hover  { border-color: #f44729; box-shadow: 0 20px 55px rgba(244,71,41,0.12); }
+
+    .card-doordash { border-color: rgba(255,62,34,0.15); }
+    .card-doordash::before { background: linear-gradient(135deg, rgba(255,62,34,0.08), transparent 60%); }
+    .card-doordash:hover { border-color: #ff3e22; box-shadow: 0 20px 55px rgba(255,62,34,0.12); }
+
+    /* Best Value badge */
+    .card-badge {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: linear-gradient(135deg, var(--red), #5a0000);
+      color: var(--cream);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0.25rem 0.65rem;
+      border-radius: 50px;
+      z-index: 2;
+    }
+
+    /* Icon */
+    .card-icon-wrap {
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 0.9rem;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+      transition: transform 0.28s ease;
+      position: relative; z-index: 1;
+      flex-shrink: 0;
+    }
+    .order-card:hover .card-icon-wrap { transform: scale(1.12) rotate(-5deg); }
+
+    .card-direct   .card-icon-wrap { background: linear-gradient(135deg, var(--gold), #b8941e); }
+    .card-uber     .card-icon-wrap { background: linear-gradient(135deg, #06ca8c, #049e6e); }
+    .card-grubhub  .card-icon-wrap { background: linear-gradient(135deg, #f44729, #c43820); }
+    .card-doordash .card-icon-wrap { background: linear-gradient(135deg, #ff3e22, #cc2f19); }
+
+    /* Labels */
+    .card-platform-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+      position: relative; z-index: 1;
+    }
+    .card-direct   .card-platform-label { color: var(--gold); }
+    .card-uber     .card-platform-label { color: #06ca8c; }
+    .card-grubhub  .card-platform-label { color: #f44729; }
+    .card-doordash .card-platform-label { color: #ff3e22; }
+
+    .card-title {
+      font-family: var(--ff-heading);
+      font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+      position: relative; z-index: 1;
+    }
+    .card-desc {
+      font-size: clamp(0.75rem, 1.2vw, 0.83rem);
+      color: var(--muted);
+      line-height: 1.6;
+      flex: 1;
+      position: relative; z-index: 1;
+      margin-bottom: 1.1rem;
+    }
+    .card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      transition: filter 0.2s, transform 0.2s;
+      position: relative; z-index: 1;
+      flex-shrink: 0;
+    }
+    .card-btn:hover { filter: brightness(1.18); transform: scale(1.05); }
+    .card-direct   .card-btn { background: var(--gold); color: var(--charcoal); }
+    .card-uber     .card-btn { background: #06ca8c; color: #fff; }
+    .card-grubhub  .card-btn { background: #f44729; color: #fff; }
+    .card-doordash .card-btn { background: #ff3e22; color: #fff; }
+
+    /* ── FOOTER STRIP (slim, always visible at bottom) ── */
+    .order-footer-strip {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 0.65rem 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      flex-shrink: 0;
+    }
+    .order-footer-strip a, .order-footer-strip span {
+      font-size: 0.78rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .order-footer-strip a:hover { color: var(--gold); }
+    .order-footer-strip i { font-size: 0.85rem; }
+
+    /* ── MOBILE: stack to single column ── */
+    @media (max-width: 680px) {
+      html, body { overflow: auto; }
+      .order-page { height: auto; min-height: 100vh; }
+      .order-cards { grid-template-columns: 1fr; max-height: none; }
+      .order-cards-wrap { padding: 1rem 1rem 1.5rem; }
+      .order-header { padding: 1.2rem 1rem 0.5rem; }
+    }
+    @media (max-height: 650px) {
+      .order-header { padding: 0.8rem 1rem 0.4rem; }
+      .order-header p { display: none; }
+      .card-desc { display: none; }
+    }
+
+/* Allow the page to scroll if the viewport is too short to fit everything,
+   so card buttons are never clipped. Horizontal scroll stays disabled. */
+body.order-active { overflow-x: hidden; overflow-y: auto; }
