@@ -10,6 +10,7 @@ import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { existsSync } from "node:fs";
 
 import User from "../models/User.js";
 import Category from "../models/Category.js";
@@ -17,8 +18,36 @@ import Product from "../models/Product.js";
 import Review from "../models/Review.js";
 
 const DATA_DIR = join(process.cwd(), "server", "data");
+const UPLOADS_DIR = join(process.cwd(), "public", "uploads");
 const readJson = async (name) =>
   JSON.parse(await readFile(join(DATA_DIR, name), "utf-8"));
+
+// Convert image file to base64 data URL
+const imageToBase64 = async (imgPath) => {
+  if (!imgPath || !imgPath.startsWith("/uploads/")) return "";
+
+  const filename = imgPath.split("/").pop();
+  const filepath = join(UPLOADS_DIR, filename);
+
+  if (!existsSync(filepath)) {
+    console.warn(`   ⚠ Image not found: ${filename}`);
+    return "";
+  }
+
+  const buffer = await readFile(filepath);
+  const ext = filename.split(".").pop().toLowerCase();
+  const mimeType = {
+    jpg: "image/jpeg",
+    jpeg: "image/jpeg",
+    png: "image/png",
+    webp: "image/webp",
+    gif: "image/gif",
+    svg: "image/svg+xml",
+  }[ext] || "image/png";
+
+  const base64 = buffer.toString("base64");
+  return `data:${mimeType};base64,${base64}`;
+};
 
 async function main() {
   const uri = process.env.MONGODB_URI;
@@ -34,7 +63,7 @@ async function main() {
 
   const categories = [];
   const products = [];
-  menu.sections.forEach((s, sIdx) => {
+  for (const [sIdx, s] of menu.sections.entries()) {
     categories.push({
       slug: String(s.id).trim(),
       icon: s.icon || "fas fa-utensils",
@@ -44,20 +73,21 @@ async function main() {
       tab: s.tab || s.title,
       order: sIdx,
     });
-    (s.items || []).forEach((it, iIdx) => {
+    for (const [iIdx, it] of (s.items || []).entries()) {
+      const imgBase64 = await imageToBase64(it.img || "");
       products.push({
         category: String(s.id).trim(),
         name: it.name,
         desc: it.desc || "",
         price: it.price || "",
-        img: it.img || "",
+        img: imgBase64,
         spicy: !!it.spicy,
         vegan: !!it.vegan,
         label: it.label ?? null,
         order: iIdx,
       });
-    });
-  });
+    }
+  }
   await Category.insertMany(categories);
   await Product.insertMany(products);
   console.log(`   ✓ ${categories.length} categories, ${products.length} products`);

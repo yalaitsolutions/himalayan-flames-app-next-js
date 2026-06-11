@@ -9,7 +9,17 @@ export default function MenuClient({ sections = [] }) {
   const [active, setActive] = useState(sections[0]?.id || "");
   const [popup, setPopup] = useState(emptyPopup);
   const [fireDissolved, setFireDissolved] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const dissolveTimerRef = useRef(null);
+  const popupTimerRef = useRef(null);
+
+  // Detect mobile on mount
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // --- Scrollspy: highlight active tab on scroll ---
   useEffect(() => {
@@ -53,16 +63,28 @@ export default function MenuClient({ sections = [] }) {
     if (top < 10) top = 10;
     setPopup({ visible: true, spicy: item.spicy, img: item.img, name: item.name, desc: item.desc, price: item.price, left, top });
 
+    // Fire animation timing
     if (item.spicy) {
       setFireDissolved(false);
       clearTimeout(dissolveTimerRef.current);
-      dissolveTimerRef.current = setTimeout(() => setFireDissolved(true), 1000);
+      // Shorter duration on mobile (600ms feels like ~1 sec), longer on desktop (1000ms)
+      const fireDuration = isMobile ? 600 : 1000;
+      dissolveTimerRef.current = setTimeout(() => setFireDissolved(true), fireDuration);
     }
-  }, []);
+
+    // On mobile, auto-close popup after 2 seconds
+    if (isMobile) {
+      clearTimeout(popupTimerRef.current);
+      popupTimerRef.current = setTimeout(() => {
+        setPopup((p) => ({ ...p, visible: false }));
+      }, 2000);
+    }
+  }, [isMobile]);
 
   const hidePopup = useCallback(() => {
     setPopup((p) => ({ ...p, visible: false }));
     clearTimeout(dissolveTimerRef.current);
+    clearTimeout(popupTimerRef.current);
     setFireDissolved(false);
   }, []);
 
@@ -111,8 +133,10 @@ export default function MenuClient({ sections = [] }) {
                       <div
                         className={`menu-item${item.spicy ? " spicy" : ""}`}
                         key={item.name + i}
-                        onMouseEnter={(e) => showPopup(item, e)}
-                        onMouseLeave={hidePopup}
+                        onMouseEnter={!isMobile ? (e) => showPopup(item, e) : undefined}
+                        onMouseLeave={!isMobile ? hidePopup : undefined}
+                        onTouchStart={isMobile ? (e) => showPopup(item, e) : undefined}
+                        onTouchEnd={isMobile ? hidePopup : undefined}
                       >
                         {item.spicy && <div className={`fire-bg${fireDissolved ? " dissolving" : ""}`} />}
                         <div className="item-main">

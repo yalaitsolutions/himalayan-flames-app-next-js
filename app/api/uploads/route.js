@@ -1,19 +1,15 @@
 // ============================================================
 //  /api/uploads  ->  POST an image (admin only)
 //  Accepts multipart/form-data (field name: "file"), validates
-//  type + size, writes it to /public/uploads, and returns the
-//  public path to store on the menu item.
+//  type + size, converts to base64, and returns a data URL
+//  to store in the menu item.
 // ============================================================
 import { NextResponse } from "next/server";
-import { writeFile, mkdir } from "node:fs/promises";
-import { join } from "node:path";
-
 import { auth } from "@/lib/auth";
 
-const UPLOAD_DIR = join(process.cwd(), "public", "uploads");
 const MAX_BYTES = 10 * 1024 * 1024; // 10 MB
 const ALLOWED = {
-  "image/jpeg": "jpg",
+  "image/jpeg": "jpeg",
   "image/png": "png",
   "image/webp": "webp",
   "image/gif": "gif",
@@ -38,8 +34,8 @@ export async function POST(request) {
   }
 
   // --- Validate type ---
-  const ext = ALLOWED[file.type];
-  if (!ext) {
+  const mimeType = ALLOWED[file.type];
+  if (!mimeType) {
     return NextResponse.json(
       { ok: false, error: "Unsupported file type. Use JPG, PNG, WEBP, GIF, AVIF or SVG." },
       { status: 400 }
@@ -54,16 +50,10 @@ export async function POST(request) {
     );
   }
 
-  // --- Build a safe, unique filename ---
-  const stem = (file.name || "photo")
-    .replace(/\.[^.]+$/, "")
-    .replace(/[^a-zA-Z0-9._-]/g, "_")
-    .slice(0, 60) || "photo";
-  const filename = `${Date.now()}-${stem}.${ext}`;
-
+  // --- Convert to base64 data URL ---
   const bytes = Buffer.from(await file.arrayBuffer());
-  await mkdir(UPLOAD_DIR, { recursive: true });
-  await writeFile(join(UPLOAD_DIR, filename), bytes);
+  const base64 = bytes.toString("base64");
+  const dataUrl = `data:${file.type};base64,${base64}`;
 
-  return NextResponse.json({ ok: true, url: `/uploads/${filename}` });
+  return NextResponse.json({ ok: true, url: dataUrl });
 }
