@@ -608,17 +608,70 @@
   .admin-main { padding: 0 1rem 3rem; overflow: visible; }
   .admin-item-form-grid,
   .admin-cat-settings-grid { grid-template-columns: 1fr; }
-  .admin-card-actions { flex-direction: row; flex-wrap: wrap; }
 
-  /* Item cards */
-  .admin-card { padding: 1rem; }
-  .admin-card-img { width: 64px; height: 64px; }
-  .admin-card-name { font-size: .97rem; }
-  .admin-card-desc { font-size: .82rem; -webkit-line-clamp: 2; }
+  /* Item cards mobile layout */
+  .admin-item-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .6rem;
+  }
+  .admin-card-thumb {
+    width: 100%;
+    height: 160px;
+    min-width: unset;
+  }
+  .admin-card-top {
+    flex-direction: column;
+    gap: .3rem;
+  }
+  .admin-card-price { margin-left: 0; margin-top: .3rem; }
+  .admin-card-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: .5rem;
+    align-items: center;
+  }
+  .admin-move-select { max-width: 100%; flex: 1; min-width: 100px; }
+
+  /* Form buttons on mobile */
+  .admin-form-foot {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .admin-form-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .admin-form-actions .admin-btn,
+  .admin-form-foot .admin-btn {
+    flex: 1;
+    min-width: 100px;
+  }
+  .admin-form-foot .danger-side { margin-right: 0; margin-bottom: .5rem; }
+
+  /* Image field on mobile */
+  .admin-img-preview { max-height: 200px; }
+  .admin-img-btns {
+    flex-direction: column;
+  }
+  .admin-img-btns button {
+    width: 100%;
+  }
+  .admin-url-row {
+    flex-direction: column;
+  }
+  .admin-url-row input,
+  .admin-url-row button {
+    width: 100%;
+  }
 
   /* Header */
   .admin-header { padding: 0 1rem; }
   .admin-header h1 { font-size: 1.1rem; }
+
+  /* Panel head mobile */
+  .admin-panel-head { flex-direction: column; align-items: flex-start; }
+  .admin-panel-head-left { width: 100%; }
 }
 
 @media (max-width: 480px) {
@@ -629,4 +682,28 @@
   .admin-section-title { font-size: 1.1rem; }
   .admin-item-form-grid { gap: .75rem; }
   .admin-btn { font-size: .82rem; padding: .45rem .9rem; }
+
+  /* Extra mobile optimization */
+  .admin-topbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .5rem;
+  }
+  .admin-topbar-left,
+  .admin-topbar-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .admin-card-name { font-size: .88rem; }
+  .admin-card-desc { font-size: .76rem; }
+  .admin-thumb {
+    width: 100%;
+    height: 140px;
+  }
+
+  .admin-checks {
+    flex-direction: column;
+    gap: .6rem;
+  }
 }
