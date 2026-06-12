@@ -418,8 +418,30 @@
     }
 
 /* Light mode overrides for home page */
-[data-theme="light"] .hero-overlay {
-  background: rgba(250,248,245,.75);
+[data-theme="light"] .hero-bg {
+  background:
+    linear-gradient(180deg, rgba(212,175,55,0.15) 0%, rgba(212,175,55,0.05) 50%, rgba(212,175,55,0.2) 100%),
+    url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1920&q=80') center/cover no-repeat !important;
+}
+
+[data-theme="light"] .hero h1 {
+  text-shadow: 0 2px 8px rgba(0,0,0,.15);
+  color: #1a1510;
+}
+
+[data-theme="light"] .hero-tagline {
+  color: #2a2620;
+  text-shadow: 0 1px 4px rgba(255,255,255,.3);
+}
+
+[data-theme="light"] .hero-badge {
+  background: rgba(212,175,55,0.12);
+  border-color: rgba(212,175,55,0.35);
+  color: #c9a961;
+}
+
+[data-theme="light"] .hero-scroll {
+  color: #c9a961;
 }
 
 [data-theme="light"] .feature-item {

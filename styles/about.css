@@ -245,6 +245,19 @@
     }
 
 /* Light mode overrides for about page */
+[data-theme="light"] .page-hero {
+  background: linear-gradient(135deg, #f9f7f4 0%, #faf8f5 50%, #f9f7f4 100%);
+}
+
+[data-theme="light"] .page-hero h1 {
+  text-shadow: 0 2px 8px rgba(0,0,0,.1);
+  color: #1a1510;
+}
+
+[data-theme="light"] .page-hero p {
+  color: #6b6460;
+}
+
 [data-theme="light"] .story-card {
   background: #f0ebe4;
   border-color: rgba(212,175,55,.15);
