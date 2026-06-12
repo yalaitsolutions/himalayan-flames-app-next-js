@@ -8,6 +8,7 @@
 //  collections to match.
 // ============================================================
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 
 import connectToDatabase from "@/lib/mongodb";
 import Category from "@/models/Category";
@@ -19,7 +20,15 @@ import { auth } from "@/lib/auth";
 export async function GET() {
   try {
     const sections = await getMenuSections();
-    return NextResponse.json({ sections });
+    // Cache for 60 seconds on browsers/CDN, then revalidate
+    return NextResponse.json(
+      { sections },
+      {
+        headers: {
+          "Cache-Control": "public, s-maxage=60, stale-while-revalidate=3600",
+        },
+      }
+    );
   } catch (err) {
     console.error("GET /api/menu", err);
     return NextResponse.json({ sections: [] }, { status: 500 });
@@ -95,6 +104,9 @@ export async function PUT(request) {
   await Promise.all([Category.deleteMany({}), Product.deleteMany({})]);
   await Category.insertMany(categoryDocs);
   if (productDocs.length) await Product.insertMany(productDocs);
+
+  // Revalidate the menu page so changes appear immediately
+  revalidatePath("/menu");
 
   return NextResponse.json({ ok: true, sections: categoryDocs.length });
 }

@@ -2,8 +2,8 @@ import MenuClient from "@/components/MenuClient";
 import { getMenuSections } from "@/lib/data";
 import "@/styles/menu.css";
 
-// Reads the menu from MongoDB at request time.
-export const dynamic = "force-dynamic";
+// Cache menu for 60 seconds, then revalidate. Admin saves trigger immediate revalidation.
+export const revalidate = 60;
 
 export const metadata = {
   title: "Menu | Himalayan Flames",
