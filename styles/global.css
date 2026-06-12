@@ -201,6 +201,28 @@ footer{background:#0a0a0a;padding:4rem 0 1.5rem;border-top:1px solid rgba(212,17
   color: #d4af37;
 }
 
+/* Navbar logo in light mode */
+[data-theme="light"] .nav-logo-text {
+  color: #2a2620;
+}
+
+[data-theme="light"] .nav-logo-text span {
+  color: #6b6460;
+}
+
+[data-theme="light"] .nav-logo img {
+  border-color: #2a2620;
+}
+
+/* Footer brand in light mode */
+[data-theme="light"] .footer-brand h3 {
+  color: #2a2620;
+}
+
+[data-theme="light"] .footer-brand img {
+  border-color: #2a2620;
+}
+
 [data-theme="light"] .page-hero {
   background: linear-gradient(135deg, #f9f7f4 0%, #faf8f5 50%, #f9f7f4 100%);
 }
