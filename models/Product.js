@@ -15,6 +15,7 @@ const ProductSchema = new mongoose.Schema(
     spicy: { type: Boolean, default: false },
     vegan: { type: Boolean, default: false },
     label: { type: String, default: null },
+    chefPick: { type: Boolean, default: false }, // featured in home page chef's picks section
     order: { type: Number, default: 0 }, // preserves item ordering within a category
   },
   { timestamps: true }

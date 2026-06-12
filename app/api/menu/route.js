@@ -69,6 +69,15 @@ export async function PUT(request) {
 
   await connectToDatabase();
 
+  // Get existing products to preserve chefPick status
+  const existingProducts = await Product.find({}).lean();
+  const chefPickMap = {};
+  existingProducts.forEach((p) => {
+    if (p.chefPick) {
+      chefPickMap[`${p.category}|${p.name}`] = true;
+    }
+  });
+
   // Build normalized category + product documents from the sections payload.
   const categoryDocs = [];
   const productDocs = [];
@@ -86,6 +95,7 @@ export async function PUT(request) {
     });
 
     (s.items || []).forEach((it, iIdx) => {
+      const key = `${slug}|${String(it.name).trim()}`;
       productDocs.push({
         category: slug,
         name: String(it.name).trim(),
@@ -95,6 +105,7 @@ export async function PUT(request) {
         spicy: !!it.spicy,
         vegan: !!it.vegan,
         label: it.label ? String(it.label).trim() : null,
+        chefPick: it.chefPick || chefPickMap[key] || false,
         order: iIdx,
       });
     });
@@ -105,8 +116,9 @@ export async function PUT(request) {
   await Category.insertMany(categoryDocs);
   if (productDocs.length) await Product.insertMany(productDocs);
 
-  // Revalidate the menu page so changes appear immediately
+  // Revalidate the menu page and home page so changes appear immediately
   revalidatePath("/menu");
+  revalidatePath("/");
 
   return NextResponse.json({ ok: true, sections: categoryDocs.length });
 }

@@ -2,32 +2,31 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import RevealEffects from "@/components/RevealEffects";
-import { getReviews } from "@/lib/data";
+import { getReviews, getChefPickDishes } from "@/lib/data";
 import "@/styles/home.css";
 
-// Reads reviews from MongoDB at request time.
-export const dynamic = "force-dynamic";
+// Cache page for 60 seconds, then revalidate
+export const revalidate = 60;
 
 const CLOVER = "https://www.clover.com/online-ordering/the-himalayan-flames-dearborn";
 const UBER = "https://www.ubereats.com/store/the-himalayan-flames/WDKvhQUcSbeyZNHpC0xGgg";
-const GRUBHUB = "https://www.grubhub.com/restaurant/the-himalayan-flames-22266-michigan-ave-dearborn/1445618";
+const GRUBHUB = "https://www.grubhub.com/restaurant/the-himalayan-flames/22266-michigan-ave-dearborn/1445618";
 const DOORDASH = "https://www.doordash.com/store/the-himalayan-flames-(gaurishankar-inc)-dearborn-788261/";
-
-const dishes = [
-  { name: "The Classic Butter Chicken", img: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&q=80", desc: "Roasted marinated chicken breast pieces slowly simmered in a rich, creamy cashew tomato sauce.", price: "$16.95", tag: "Chicken", badge: "Fan Favorite", delay: 0 },
-  { name: "Lamb Dum Biryani", img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&q=80", desc: "Slow-cooked basmati rice layered with tender lamb, saffron, caramelized onions & whole spices.", price: "$17", tag: "Biryani", badge: "Signature", delay: 100 },
-  { name: "Tandoori Chicken", img: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&q=80", desc: "Bone-in chicken marinated in yogurt with ginger, garlic & herbs, barbecued in our clay oven.", price: "From $16", tag: "Tandoor", badge: "Tandoor", delay: 200 },
-  { name: "Rogan Josh", img: "https://images.unsplash.com/photo-1596797038530-2c107aa7497d?w=600&q=80", desc: "Tender lamb cubes cooked with onion, tomato & yogurt base with a blend of aromatic spices.", price: "$17.95", tag: "Lamb", badge: null, delay: 0 },
-  { name: "Samosa Chaat", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80", desc: "Indian savory snack topped with onion, tomatoes, yogurt, fresh mint and tamarind chutney.", price: "$11", tag: "Starter", badge: "Starter", delay: 100 },
-  { name: "Nalli Gosht", img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80", desc: "Himalayan special lamb shanks — a signature dish from our executive chef, slow-braised to perfection.", price: "$23", tag: "Himalayan Special", badge: "Chef's Special", delay: 200 },
-];
 
 export default async function Home() {
   let reviews = [];
+  let dishes = [];
+
   try {
     reviews = await getReviews();
   } catch {
     reviews = [];
+  }
+
+  try {
+    dishes = await getChefPickDishes();
+  } catch {
+    dishes = [];
   }
 
   return (
@@ -84,22 +83,24 @@ export default async function Home() {
             <div className="divider"></div>
           </div>
           <div className="dishes-grid">
-            {dishes.map((d) => (
-              <div className="dish-card reveal" data-delay={d.delay} key={d.name}>
+            {dishes.length > 0 ? dishes.map((d, i) => (
+              <div className="dish-card reveal" data-delay={i * 100} key={d._id}>
                 <div className="dish-img">
-                  <img src={d.img} alt={d.name} loading="lazy" />
-                  {d.badge && <span className="dish-badge">{d.badge}</span>}
+                  {d.img && <img src={d.img} alt={d.name} loading="lazy" />}
+                  <span className="dish-badge">Chef's Pick</span>
                 </div>
                 <div className="dish-body">
                   <h3>{d.name}</h3>
                   <p>{d.desc}</p>
                   <div className="dish-footer">
                     <span className="dish-price">{d.price}</span>
-                    <span className="dish-tag">{d.tag}</span>
+                    <span className="dish-tag">{d.category}</span>
                   </div>
                 </div>
               </div>
-            ))}
+            )) : (
+              <p style={{ textAlign: "center", gridColumn: "1/-1", color: "var(--muted)", padding: "2rem" }}>No dishes marked as Chef's Picks yet. Add them from the menu manager!</p>
+            )}
           </div>
           <div style={{ textAlign: "center", marginTop: "3rem" }}>
             <Link href="/menu" className="btn btn-outline"><i className="fas fa-book-open"></i> Explore Full Menu</Link>

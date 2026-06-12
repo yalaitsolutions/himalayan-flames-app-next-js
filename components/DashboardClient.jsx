@@ -29,7 +29,7 @@ const uploadImage = async (file) => {
 
 // ── helpers ────────────────────────────────────────────────
 const blankItem = () => ({
-  name: "", desc: "", price: "", img: "", spicy: false, vegan: false, label: null,
+  name: "", desc: "", price: "", img: "", spicy: false, vegan: false, label: null, chefPick: false,
 });
 
 const blankSection = (title = "") => ({
@@ -175,6 +175,10 @@ function ItemForm({ initial, onSave, onCancel, uploading }) {
             <input type="checkbox" checked={draft.vegan} onChange={(e) => set("vegan", e.target.checked)} />
             🌿 Vegan
           </label>
+          <label className="admin-check">
+            <input type="checkbox" checked={draft.chefPick || false} onChange={(e) => set("chefPick", e.target.checked)} />
+            👨‍🍳 Chef's Pick
+          </label>
         </div>
         <div className="admin-form-actions">
           <button type="button" className="admin-btn" onClick={onCancel}>Cancel</button>
@@ -212,6 +216,7 @@ function ItemCard({ item, sections, sectionId, onEdit, onDelete, onMove }) {
         </div>
         {item.desc && <div className="admin-card-desc">{item.desc}</div>}
         <div className="admin-card-badges">
+          {item.chefPick && <span className="badge" style={{ background: "rgba(212,175,55,.15)", color: "#d4af37", border: "1px solid rgba(212,175,55,.3)" }}>👨‍🍳 Chef's Pick</span>}
           {item.spicy && <span className="badge spicy">🌶️ Spicy</span>}
           {item.vegan && <span className="badge vegan">🌿 Vegan</span>}
           {item.label && <span className="badge label-b">{item.label}</span>}
