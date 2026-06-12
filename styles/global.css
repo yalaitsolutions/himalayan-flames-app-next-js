@@ -182,6 +182,25 @@ footer{background:#0a0a0a;padding:4rem 0 1.5rem;border-top:1px solid rgba(212,17
 }
 
 /* Light mode: Fix hero sections, section backgrounds, and text contrast */
+[data-theme="light"] .nav.scrolled {
+  background: rgba(250,248,245,.97);
+  box-shadow: 0 2px 30px rgba(0,0,0,.1);
+}
+
+[data-theme="light"] .nav.scrolled a,
+[data-theme="light"] .nav.scrolled .nav-logo-text {
+  color: #2a2620;
+}
+
+[data-theme="light"] .nav.scrolled a::after {
+  background-color: #d4af37;
+}
+
+[data-theme="light"] .nav.scrolled a:hover,
+[data-theme="light"] .nav.scrolled a.active {
+  color: #d4af37;
+}
+
 [data-theme="light"] .page-hero {
   background: linear-gradient(135deg, #f9f7f4 0%, #faf8f5 50%, #f9f7f4 100%);
 }
