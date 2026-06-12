@@ -69,12 +69,17 @@ export async function PUT(request) {
 
   await connectToDatabase();
 
-  // Get existing products to preserve chefPick status
+  // Get existing products to preserve chefPick status and images
   const existingProducts = await Product.find({}).lean();
   const chefPickMap = {};
+  const imageMap = {};
   existingProducts.forEach((p) => {
+    const key = `${p.category}|${p.name}`;
     if (p.chefPick) {
-      chefPickMap[`${p.category}|${p.name}`] = true;
+      chefPickMap[key] = true;
+    }
+    if (p.img) {
+      imageMap[key] = p.img;
     }
   });
 
@@ -96,12 +101,16 @@ export async function PUT(request) {
 
     (s.items || []).forEach((it, iIdx) => {
       const key = `${slug}|${String(it.name).trim()}`;
+      const imgStr = String(it.img || "").trim();
+      // If image is empty, preserve the existing image; otherwise use the new one
+      const img = imgStr || imageMap[key] || "";
+
       productDocs.push({
         category: slug,
         name: String(it.name).trim(),
         desc: String(it.desc || "").trim(),
         price: String(it.price || "").trim(),
-        img: String(it.img || "").trim(),
+        img: img,
         spicy: !!it.spicy,
         vegan: !!it.vegan,
         label: it.label ? String(it.label).trim() : null,

@@ -7,10 +7,23 @@ import "@/styles/admin.css";
 const getMenu = () => fetch("/api/menu").then((r) => r.json());
 
 const saveMenu = async (menu) => {
+  // Strip large base64 images to avoid 413 Content Too Large error
+  // The API will preserve existing images automatically
+  const menuWithoutImages = {
+    ...menu,
+    sections: menu.sections.map((s) => ({
+      ...s,
+      items: s.items.map((it) => ({
+        ...it,
+        img: it.img && it.img.startsWith("data:") ? "" : it.img, // Keep external URLs, strip base64
+      })),
+    })),
+  };
+
   const res = await fetch("/api/menu", {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(menu),
+    body: JSON.stringify(menuWithoutImages),
   });
   const data = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error(data.error || `Save failed: ${res.status}`);
