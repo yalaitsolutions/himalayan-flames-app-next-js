@@ -201,19 +201,9 @@ footer{background:#0a0a0a;padding:4rem 0 1.5rem;border-top:1px solid rgba(212,17
   color: #d4af37;
 }
 
-/* Navbar logo in light mode - both scrolled and normal states */
-[data-theme="light"] .nav {
-  background: rgba(250,248,245,.3);
-}
-
-[data-theme="light"] .nav-logo {
-  background: rgba(255,255,255,.7);
-  padding: 0.5rem;
-  border-radius: 50%;
-}
-
+/* Navbar logo in light mode */
 [data-theme="light"] .nav-logo-text {
-  color: #1a1510;
+  color: #2a2620;
 }
 
 [data-theme="light"] .nav-logo-text span {
@@ -222,7 +212,6 @@ footer{background:#0a0a0a;padding:4rem 0 1.5rem;border-top:1px solid rgba(212,17
 
 [data-theme="light"] .nav-logo img {
   border-color: #2a2620;
-  filter: brightness(0.95);
 }
 
 /* Footer brand in light mode */
