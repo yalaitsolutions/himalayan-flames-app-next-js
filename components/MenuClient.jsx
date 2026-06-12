@@ -63,13 +63,11 @@ export default function MenuClient({ sections = [] }) {
     if (top < 10) top = 10;
     setPopup({ visible: true, spicy: item.spicy, img: item.img, name: item.name, desc: item.desc, price: item.price, left, top });
 
-    // Fire animation timing
+    // Fire animation timing - exactly 1 second on both mobile and desktop
     if (item.spicy) {
       setFireDissolved(false);
       clearTimeout(dissolveTimerRef.current);
-      // Shorter duration on mobile (600ms feels like ~1 sec), longer on desktop (1000ms)
-      const fireDuration = isMobile ? 600 : 1000;
-      dissolveTimerRef.current = setTimeout(() => setFireDissolved(true), fireDuration);
+      dissolveTimerRef.current = setTimeout(() => setFireDissolved(true), 1000);
     }
 
     // On mobile, auto-close popup after 2 seconds
@@ -133,14 +131,17 @@ export default function MenuClient({ sections = [] }) {
                       <div
                         className={`menu-item${item.spicy ? " spicy" : ""}`}
                         key={item.name + i}
-                        onMouseEnter={!isMobile ? (e) => showPopup(item, e) : undefined}
-                        onMouseLeave={!isMobile ? hidePopup : undefined}
-                        onTouchStart={isMobile ? (e) => showPopup(item, e) : undefined}
-                        onTouchEnd={isMobile ? hidePopup : undefined}
                       >
                         {item.spicy && <div className={`fire-bg${fireDissolved ? " dissolving" : ""}`} />}
                         <div className="item-main">
-                          <div className="item-name-row">
+                          <div
+                            className="item-name-row"
+                            onMouseEnter={!isMobile ? (e) => showPopup(item, e) : undefined}
+                            onMouseLeave={!isMobile ? hidePopup : undefined}
+                            onTouchStart={isMobile ? (e) => showPopup(item, e) : undefined}
+                            onTouchEnd={isMobile ? hidePopup : undefined}
+                            style={{ cursor: "pointer" }}
+                          >
                             <span className="item-name-group">
                               <span className="item-name">{item.name}</span>
                               {item.vegan && <span className="vegan-inline"> (VEGAN)</span>}
