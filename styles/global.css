@@ -22,6 +22,19 @@
   --shadow-sm: 0 4px 20px rgba(0,0,0,0.3);
   --radius: 12px;
   --nav-h: 84px;
+  --bg: #111111;
+}
+
+/* Light mode theme */
+[data-theme="light"] {
+  --charcoal: #f9f7f4;
+  --dark:     #efe9e0;
+  --dark2:    #e8dfd5;
+  --cream:    #2a2620;
+  --cream2:   #1a1510;
+  --text:     #5a5450;
+  --muted:    #8a8078;
+  --bg:       #f9f7f4;
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -72,6 +85,29 @@ p{color:var(--text)}
 .nav-links a:hover,.nav-links a.active{color:var(--gold)}
 .nav-links a:hover::after,.nav-links a.active::after{width:100%}
 .nav-cta{padding:.5rem 1.3rem;font-size:.85rem}
+
+/* Theme toggle button */
+.theme-toggle{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:rgba(212,175,55,.1);
+  border:1px solid rgba(212,175,55,.25);
+  color:var(--gold);
+  font-size:1.2rem;
+  cursor:pointer;
+  transition:background var(--transition),border-color var(--transition),transform var(--transition);
+  margin-left:.5rem;
+}
+.theme-toggle:hover{
+  background:rgba(212,175,55,.2);
+  border-color:rgba(212,175,55,.5);
+  transform:scale(1.1);
+}
+
 .hamburger{display:none;flex-direction:column;gap:5px;padding:4px}
 .hamburger span{display:block;width:26px;height:2px;background:var(--gold);transition:var(--transition);border-radius:2px}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -123,6 +159,8 @@ footer{background:#0a0a0a;padding:4rem 0 1.5rem;border-top:1px solid rgba(212,17
   .nav-links{display:none}
   .hamburger{display:flex}
   .nav-links.mobile-open{display:flex;flex-direction:column;position:fixed;top:var(--nav-h);left:0;right:0;background:rgba(17,17,17,.98);padding:2rem 1.5rem 3rem;gap:1.5rem;align-items:flex-start;backdrop-filter:blur(16px);border-top:1px solid rgba(212,175,55,.15)}
+  .nav-links.mobile-open li{width:100%}
+  .nav-links.mobile-open .theme-toggle{width:100%;justify-content:center;border-radius:8px;margin-left:0;height:auto;padding:.75rem 1rem}
   .footer-grid{grid-template-columns:1fr;gap:2rem}
   .footer-bottom{flex-direction:column;text-align:center}
   .section-header{margin-bottom:2.5rem}

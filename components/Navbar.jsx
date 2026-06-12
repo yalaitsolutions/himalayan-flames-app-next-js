@@ -2,11 +2,13 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTheme } from "@/lib/useTheme";
 
 export default function Navbar({ alwaysScrolled = false }) {
   const [scrolled, setScrolled] = useState(alwaysScrolled);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const { theme, toggleTheme, mounted } = useTheme();
 
   useEffect(() => {
     if (alwaysScrolled) return;
@@ -40,6 +42,18 @@ export default function Navbar({ alwaysScrolled = false }) {
               Order Online
             </Link>
           </li>
+          {mounted && (
+            <li>
+              <button
+                className="theme-toggle"
+                onClick={toggleTheme}
+                aria-label="Toggle dark/light mode"
+                title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              >
+                {theme === "dark" ? "☀️" : "🌙"}
+              </button>
+            </li>
+          )}
         </ul>
         <button
           className={`hamburger${open ? " open" : ""}`}
