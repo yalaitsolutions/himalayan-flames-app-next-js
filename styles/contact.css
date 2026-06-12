@@ -278,3 +278,22 @@
       .form-group select { font-size: 0.9rem; padding: 0.7rem 0.9rem; }
       .map-wrap { height: 260px; }
     }
+
+/* Light mode overrides for contact page */
+[data-theme="light"] .contact-form {
+  background: #f0ebe4;
+  border-color: rgba(212,175,55,.15);
+}
+
+[data-theme="light"] .form-group input,
+[data-theme="light"] .form-group textarea,
+[data-theme="light"] .form-group select {
+  background: rgba(212,175,55,.06);
+  border-color: rgba(212,175,55,.25);
+  color: #2a2620;
+}
+
+[data-theme="light"] .platform-card {
+  background: #f0ebe4;
+  border-color: rgba(212,175,55,.15);
+}

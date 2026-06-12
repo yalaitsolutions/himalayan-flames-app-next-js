@@ -707,3 +707,48 @@
     gap: .6rem;
   }
 }
+
+/* Light mode overrides for admin panel */
+[data-theme="light"] .admin {
+  background: var(--bg);
+  color: var(--text);
+}
+
+[data-theme="light"] .admin-login {
+  background: #f0ebe4;
+  border-color: rgba(212,175,55,.3);
+}
+
+[data-theme="light"] .admin-field input,
+[data-theme="light"] .admin-field textarea,
+[data-theme="light"] .admin-field select,
+[data-theme="light"] .admin-url-row input {
+  background: rgba(212,175,55,.06);
+  border-color: rgba(212,175,55,.28);
+  color: #2a2620;
+}
+
+[data-theme="light"] .admin-item-card {
+  background: #f0ebe4;
+  border-color: rgba(212,175,55,.2);
+}
+
+[data-theme="light"] .admin-topbar {
+  background: rgba(250,248,245,.96);
+  border-color: rgba(212,175,55,.2);
+}
+
+[data-theme="light"] .admin-sidebar {
+  background: rgba(240,235,228,.5);
+  border-color: rgba(212,175,55,.2);
+}
+
+[data-theme="light"] .admin-cat-item:hover {
+  background: rgba(212,175,55,.12);
+}
+
+[data-theme="light"] .admin-new-item-wrap,
+[data-theme="light"] .admin-edit-wrap {
+  background: rgba(212,175,55,.08);
+  border-color: rgba(212,175,55,.25);
+}

@@ -553,3 +553,26 @@
       font-size: 1.1rem;
     }
 
+/* Light mode overrides for menu page */
+[data-theme="light"] .menu-tabs {
+  background: var(--charcoal);
+  border-color: rgba(212,175,55,.15);
+}
+
+[data-theme="light"] .menu-item {
+  background: rgba(240,235,228,.3);
+}
+
+[data-theme="light"] #dishPopup {
+  background: #f0ebe4;
+  color: #2a2620;
+}
+
+[data-theme="light"] #popupName {
+  color: #1a1510;
+}
+
+[data-theme="light"] #popupDesc {
+  color: #6b6460;
+}
+

@@ -27,14 +27,14 @@
 
 /* Light mode theme */
 [data-theme="light"] {
-  --charcoal: #f9f7f4;
-  --dark:     #efe9e0;
+  --charcoal: #faf8f5;
+  --dark:     #f0ebe4;
   --dark2:    #e8dfd5;
-  --cream:    #2a2620;
-  --cream2:   #1a1510;
-  --text:     #5a5450;
-  --muted:    #8a8078;
-  --bg:       #f9f7f4;
+  --cream:    #1a1510;
+  --cream2:   #2a2620;
+  --text:     #2a2620;
+  --muted:    #6b6460;
+  --bg:       #faf8f5;
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}

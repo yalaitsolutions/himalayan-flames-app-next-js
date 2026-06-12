@@ -243,3 +243,14 @@
       .why-cards-grid { grid-template-columns: 1fr 1fr; }
       .chef-stats { grid-template-columns: 1fr 1fr; }
     }
+
+/* Light mode overrides for about page */
+[data-theme="light"] .story-card {
+  background: #f0ebe4;
+  border-color: rgba(212,175,55,.15);
+}
+
+[data-theme="light"] .why-card {
+  background: #f0ebe4;
+  border-color: rgba(212,175,55,.15);
+}

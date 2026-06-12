@@ -244,3 +244,13 @@
 /* Allow the page to scroll if the viewport is too short to fit everything,
    so card buttons are never clipped. Horizontal scroll stays disabled. */
 body.order-active { overflow-x: hidden; overflow-y: auto; }
+
+/* Light mode overrides for order page */
+[data-theme="light"] .order-card {
+  background: #f0ebe4;
+  border-color: rgba(212,175,55,.15);
+}
+
+[data-theme="light"] .card-header {
+  background: rgba(212,175,55,.08);
+}
