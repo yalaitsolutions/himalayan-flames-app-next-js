@@ -5,7 +5,8 @@
 //
 //  The admin dashboard saves the entire menu at once, so PUT
 //  validates the payload then rewrites the Category + Product
-//  collections to match.
+//  collections to match. Image IDs are stored directly in
+//  the database and loaded via /api/images/[id] on the client.
 // ============================================================
 import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
@@ -13,13 +14,27 @@ import { revalidatePath } from "next/cache";
 import connectToDatabase from "@/lib/mongodb";
 import Category from "@/models/Category";
 import Product from "@/models/Product";
+import Image from "@/models/Image";
 import { getMenuSections } from "@/lib/data";
 import { auth } from "@/lib/auth";
 
 // ---- GET: public menu -------------------------------------------------------
 export async function GET() {
   try {
+    await connectToDatabase();
     const sections = await getMenuSections();
+
+    // Load any image IDs and replace with full data URLs
+    for (const section of sections) {
+      for (const item of section.items) {
+        if (item.img && item.img.length === 24) {
+          // Looks like a MongoDB ObjectId (image ID)
+          const imgDoc = await Image.findById(item.img).lean();
+          if (imgDoc) item.img = imgDoc.data;
+        }
+      }
+    }
+
     // Cache for 60 seconds on browsers/CDN, then revalidate
     return NextResponse.json(
       { sections },

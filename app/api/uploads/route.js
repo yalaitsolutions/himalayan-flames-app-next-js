@@ -1,11 +1,13 @@
 // ============================================================
 //  /api/uploads  ->  POST an image (admin only)
 //  Accepts multipart/form-data (field name: "file"), validates
-//  type + size, converts to base64, and returns a data URL
-//  to store in the menu item.
+//  type + size, converts to base64, saves to DB, and returns
+//  the image ID (not the full data URL).
 // ============================================================
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
+import connectToDatabase from "@/lib/mongodb";
+import Image from "@/models/Image";
 
 const MAX_BYTES = 10 * 1024 * 1024; // 10 MB
 const ALLOWED = {
@@ -50,10 +52,13 @@ export async function POST(request) {
     );
   }
 
-  // --- Convert to base64 data URL ---
+  // --- Convert to base64 and save to database ---
   const bytes = Buffer.from(await file.arrayBuffer());
   const base64 = bytes.toString("base64");
   const dataUrl = `data:${file.type};base64,${base64}`;
 
-  return NextResponse.json({ ok: true, url: dataUrl });
+  await connectToDatabase();
+  const doc = await Image.create({ data: dataUrl, mimeType: file.type });
+
+  return NextResponse.json({ ok: true, imageId: doc._id.toString() });
 }
