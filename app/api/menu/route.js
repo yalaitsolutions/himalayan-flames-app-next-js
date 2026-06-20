@@ -27,10 +27,15 @@ export async function GET() {
     // Load any image IDs and replace with full data URLs
     for (const section of sections) {
       for (const item of section.items) {
-        if (item.img && item.img.length === 24) {
+        if (item.img && item.img.length === 24 && /^[0-9a-f]{24}$/.test(item.img)) {
           // Looks like a MongoDB ObjectId (image ID)
-          const imgDoc = await Image.findById(item.img).lean();
-          if (imgDoc) item.img = imgDoc.data;
+          try {
+            const imgDoc = await Image.findById(item.img).lean();
+            if (imgDoc) item.img = imgDoc.data;
+          } catch (e) {
+            console.warn(`Failed to load image ${item.img}:`, e.message);
+            // Leave original img value if loading fails
+          }
         }
       }
     }

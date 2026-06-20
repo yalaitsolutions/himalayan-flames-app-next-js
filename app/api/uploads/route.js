@@ -53,12 +53,20 @@ export async function POST(request) {
   }
 
   // --- Convert to base64 and save to database ---
-  const bytes = Buffer.from(await file.arrayBuffer());
-  const base64 = bytes.toString("base64");
-  const dataUrl = `data:${file.type};base64,${base64}`;
+  try {
+    const bytes = Buffer.from(await file.arrayBuffer());
+    const base64 = bytes.toString("base64");
+    const dataUrl = `data:${file.type};base64,${base64}`;
 
-  await connectToDatabase();
-  const doc = await Image.create({ data: dataUrl, mimeType: file.type });
+    await connectToDatabase();
+    const doc = await Image.create({ data: dataUrl, mimeType: file.type });
 
-  return NextResponse.json({ ok: true, imageId: doc._id.toString() });
+    return NextResponse.json({ ok: true, imageId: doc._id.toString() });
+  } catch (err) {
+    console.error("Image save error:", err);
+    return NextResponse.json(
+      { ok: false, error: "Failed to save image: " + err.message },
+      { status: 500 }
+    );
+  }
 }
