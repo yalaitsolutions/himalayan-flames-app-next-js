@@ -17,22 +17,14 @@ const saveMenu = async (menu) => {
   return data;
 };
 
-// Upload image and get back an ID. Preview is loaded separately via the /api/images/[id] endpoint.
+// Upload image to Vercel Blob Storage and get back the URL
 const uploadImage = async (file) => {
   const fd = new FormData();
   fd.append("file", file);
   const res = await fetch("/api/uploads", { method: "POST", body: fd });
   const data = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error(data.error || "Image upload failed.");
-  return data.imageId;
-};
-
-// Get image data URL from imageId
-const getImageDataUrl = async (imageId) => {
-  const res = await fetch(`/api/images/${imageId}`);
-  const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(data.error || "Failed to load image.");
-  return data.data;
+  return data.url;
 };
 
 // ── helpers ────────────────────────────────────────────────
@@ -62,18 +54,8 @@ function ImageField({ currentSrc, onFileSelected, onUrlChange }) {
   const fileRef = useRef(null);
   const [showUrl, setShowUrl] = useState(false);
   const [urlDraft, setUrlDraft] = useState(currentSrc || "");
-  const [displaySrc, setDisplaySrc] = useState(currentSrc || "");
 
   useEffect(() => {
-    // If currentSrc is a MongoDB ID (24 hex chars), fetch the image data
-    if (currentSrc && currentSrc.length === 24 && /^[0-9a-f]{24}$/.test(currentSrc)) {
-      fetch(`/api/images/${currentSrc}`)
-        .then((r) => r.json())
-        .then((d) => setDisplaySrc(d.data))
-        .catch(() => setDisplaySrc(""));
-    } else {
-      setDisplaySrc(currentSrc || "");
-    }
     setUrlDraft(currentSrc || "");
     setShowUrl(false);
   }, [currentSrc]);
@@ -96,8 +78,8 @@ function ImageField({ currentSrc, onFileSelected, onUrlChange }) {
     <div className="admin-image-field">
       <span className="admin-field-label">Image</span>
 
-      {displaySrc
-        ? <img src={displaySrc} className="admin-img-preview" alt="preview" />
+      {currentSrc
+        ? <img src={currentSrc} className="admin-img-preview" alt="preview" />
         : (
           <div className="admin-img-placeholder">
             <i className="fas fa-image" /> No image yet
@@ -222,7 +204,7 @@ function ItemCard({ item, sections, sectionId, onEdit, onDelete, onMove }) {
     <div className="admin-item-card">
       <div className="admin-card-thumb">
         {item.img
-          ? <img src={item.img.length === 24 ? `/api/images/${item.img}` : item.img} alt={item.name} />
+          ? <img src={item.img} alt={item.name} />
           : <i className="fas fa-utensils" />}
       </div>
 
@@ -532,9 +514,9 @@ export default function DashboardClient({ user }) {
     try {
       let img = draft.img;
       if (pendingFile) {
-        // Upload returns an imageId, not the full base64
-        const imageId = await uploadImage(pendingFile);
-        img = imageId; // Store only the ID, not the full image
+        // Upload to Vercel Blob Storage and get the URL back
+        const url = await uploadImage(pendingFile);
+        img = url;
       }
       const finalItem = { ...draft, img };
       setSections((prev) =>

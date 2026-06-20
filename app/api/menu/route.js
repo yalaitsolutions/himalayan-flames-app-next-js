@@ -14,33 +14,14 @@ import { revalidatePath } from "next/cache";
 import connectToDatabase from "@/lib/mongodb";
 import Category from "@/models/Category";
 import Product from "@/models/Product";
-import Image from "@/models/Image";
 import { getMenuSections } from "@/lib/data";
 import { auth } from "@/lib/auth";
 
 // ---- GET: public menu -------------------------------------------------------
 export async function GET() {
   try {
-    await connectToDatabase();
     const sections = await getMenuSections();
-
-    // Load any image IDs and replace with full data URLs
-    for (const section of sections) {
-      for (const item of section.items) {
-        if (item.img && item.img.length === 24 && /^[0-9a-f]{24}$/.test(item.img)) {
-          // Looks like a MongoDB ObjectId (image ID)
-          try {
-            const imgDoc = await Image.findById(item.img).lean();
-            if (imgDoc) item.img = imgDoc.data;
-          } catch (e) {
-            console.warn(`Failed to load image ${item.img}:`, e.message);
-            // Leave original img value if loading fails
-          }
-        }
-      }
-    }
-
-    // Cache for 60 seconds on browsers/CDN, then revalidate
+    // Images are now stored as Vercel Blob URLs, no need to load separately
     return NextResponse.json(
       { sections },
       {
