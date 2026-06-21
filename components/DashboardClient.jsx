@@ -7,6 +7,8 @@ import "@/styles/admin.css";
 const getMenu = () => fetch("/api/menu").then((r) => r.json());
 
 const saveMenu = async (menu) => {
+  // Send menu with image IDs only (not full base64 strings)
+  // Image IDs are small strings stored in MongoDB
   const res = await fetch("/api/menu", {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
@@ -17,14 +19,14 @@ const saveMenu = async (menu) => {
   return data;
 };
 
-// Upload image to Vercel Blob Storage and get back the URL
+// Upload image and get back an image ID (not the full base64)
 const uploadImage = async (file) => {
   const fd = new FormData();
   fd.append("file", file);
   const res = await fetch("/api/uploads", { method: "POST", body: fd });
   const data = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error(data.error || "Image upload failed.");
-  return data.url;
+  return data.imageId; // Return only the ID
 };
 
 // ── helpers ────────────────────────────────────────────────
@@ -213,7 +215,7 @@ function ItemCard({ item, sections, sectionId, onEdit, onDelete, onMove }) {
     <div className="admin-item-card">
       <div className="admin-card-thumb">
         {item.img
-          ? <img src={item.img} alt={item.name} />
+          ? <img src={item.img.length === 24 ? `/api/images/${item.img}` : item.img} alt={item.name} />
           : <i className="fas fa-utensils" />}
       </div>
 
