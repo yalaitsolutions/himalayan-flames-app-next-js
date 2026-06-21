@@ -63,6 +63,15 @@ function ImageField({ currentSrc, onFileSelected, onUrlChange }) {
   const handleFile = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
+
+    // Check file size (2MB limit)
+    const MAX_SIZE = 2 * 1024 * 1024; // 2MB
+    if (file.size > MAX_SIZE) {
+      alert(`⚠️ File too large!\n\nMax size: 2MB\nYour file: ${(file.size / 1024 / 1024).toFixed(2)}MB\n\nPlease compress the image and try again.`);
+      e.target.value = "";
+      return;
+    }
+
     const localUrl = URL.createObjectURL(file);
     onFileSelected(file, localUrl);
     setShowUrl(false);
@@ -514,7 +523,7 @@ export default function DashboardClient({ user }) {
     try {
       let img = draft.img;
       if (pendingFile) {
-        // Upload to Vercel Blob Storage and get the URL back
+        // Upload image and get the base64 URL back
         const url = await uploadImage(pendingFile);
         img = url;
       }
@@ -527,8 +536,13 @@ export default function DashboardClient({ user }) {
         })
       );
       setEditingItemIdx(null);
+      if (pendingFile) {
+        setMsg({ type: "ok", text: "✅ Image uploaded successfully! Click 'Save changes' to save." });
+      }
     } catch (e) {
-      setMsg({ type: "err", text: "Image upload failed: " + e.message });
+      console.error("Save item error:", e);
+      alert(`❌ Error: ${e.message}`);
+      setMsg({ type: "err", text: `Image error: ${e.message}` });
     } finally {
       setUploading(false);
     }
