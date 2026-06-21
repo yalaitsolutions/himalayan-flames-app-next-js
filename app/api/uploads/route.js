@@ -1,14 +1,12 @@
 // ============================================================
 //  /api/uploads  ->  POST an image (admin only)
 //  Accepts multipart/form-data (field name: "file"), validates
-//  type + size, uploads to Vercel Blob Storage, and returns
-//  the blob URL for storage in the menu item.
+//  type + size, converts to base64 data URL for storage in menu item.
 // ============================================================
 import { NextResponse } from "next/server";
-import { put } from "@vercel/blob";
 import { auth } from "@/lib/auth";
 
-const MAX_BYTES = 10 * 1024 * 1024; // 10 MB
+const MAX_BYTES = 2 * 1024 * 1024; // 2 MB per image (reasonable size)
 const ALLOWED = {
   "image/jpeg": "jpeg",
   "image/png": "png",
@@ -46,18 +44,20 @@ export async function POST(request) {
   // --- Validate size ---
   if (file.size > MAX_BYTES) {
     return NextResponse.json(
-      { ok: false, error: "Image too large (max 10 MB)." },
+      { ok: false, error: `Image too large (max ${MAX_BYTES / 1024 / 1024}MB). Compress and try again.` },
       { status: 400 }
     );
   }
 
-  // --- Upload to Vercel Blob Storage ---
+  // --- Convert to base64 data URL ---
   try {
-    const filename = `menu-item-${Date.now()}-${Math.random().toString(36).slice(2)}.${ALLOWED[file.type]}`;
-    const blob = await put(filename, file, { access: "public" });
-    return NextResponse.json({ ok: true, url: blob.url });
+    const bytes = Buffer.from(await file.arrayBuffer());
+    const base64 = bytes.toString("base64");
+    const dataUrl = `data:${file.type};base64,${base64}`;
+
+    return NextResponse.json({ ok: true, url: dataUrl });
   } catch (err) {
-    console.error("Blob upload error:", err);
+    console.error("Image upload error:", err);
     return NextResponse.json(
       { ok: false, error: "Failed to upload image: " + err.message },
       { status: 500 }
