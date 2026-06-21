@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { resolveImg } from "@/lib/img";
 
 const emptyPopup = { visible: false, spicy: false, img: "", name: "", desc: "", price: "", left: 0, top: 0 };
 
@@ -181,7 +182,7 @@ export default function MenuClient({ sections = [] }) {
         }}
       >
         <div id="popupImgWrap">
-          {popup.img && <img id="popupImg" src={popup.img} alt={popup.name} />}
+          {popup.img && <img id="popupImg" src={resolveImg(popup.img)} alt={popup.name} />}
           {popup.spicy && <div key={popup.name} className={`popup-fire-overlay${fireDissolved ? " dissolving" : ""}`} />}
           <div className="popup-spicy-badge" style={{ display: popup.spicy ? "block" : "none" }}>🌶️ Spicy</div>
         </div>

@@ -14,37 +14,22 @@ import { revalidatePath } from "next/cache";
 import connectToDatabase from "@/lib/mongodb";
 import Category from "@/models/Category";
 import Product from "@/models/Product";
-import Image from "@/models/Image";
 import { getMenuSections } from "@/lib/data";
 import { auth } from "@/lib/auth";
 
 // ---- GET: public menu -------------------------------------------------------
+// Returns image IDs as-is (small strings). The browser fetches the actual
+// bytes from /api/images/[id]. This keeps the payload tiny so the admin
+// dashboard can round-trip it back on save without hitting request limits.
 export async function GET() {
   try {
-    await connectToDatabase();
     const sections = await getMenuSections();
-
-    // Load full image data for any image IDs
-    for (const section of sections) {
-      for (const item of section.items) {
-        if (item.img && item.img.length === 24) {
-          // Looks like a MongoDB ObjectId
-          try {
-            const imgDoc = await Image.findById(item.img).lean();
-            if (imgDoc) item.img = imgDoc.data;
-          } catch (e) {
-            // If image load fails, leave the ID as is
-            console.warn(`Failed to load image ${item.img}:`, e.message);
-          }
-        }
-      }
-    }
 
     return NextResponse.json(
       { sections },
       {
         headers: {
-          "Cache-Control": "public, s-maxage=60, stale-while-revalidate=3600",
+          "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
         },
       }
     );

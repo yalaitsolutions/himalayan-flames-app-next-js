@@ -1,10 +1,15 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { signOut } from "next-auth/react";
+import { resolveImg } from "@/lib/img";
 import "@/styles/admin.css";
 
 // ── API helpers (Next.js Route Handlers; auth via session cookie) ──
-const getMenu = () => fetch("/api/menu").then((r) => r.json());
+// Cache-bust so the dashboard always reflects the latest saved menu
+// (the public /api/menu response is CDN-cached, which would otherwise
+// show stale data right after a save).
+const getMenu = () =>
+  fetch(`/api/menu?ts=${Date.now()}`, { cache: "no-store" }).then((r) => r.json());
 
 const saveMenu = async (menu) => {
   // Send menu with image IDs only (not full base64 strings)
@@ -90,7 +95,7 @@ function ImageField({ currentSrc, onFileSelected, onUrlChange }) {
       <span className="admin-field-label">Image</span>
 
       {currentSrc
-        ? <img src={currentSrc} className="admin-img-preview" alt="preview" />
+        ? <img src={resolveImg(currentSrc)} className="admin-img-preview" alt="preview" />
         : (
           <div className="admin-img-placeholder">
             <i className="fas fa-image" /> No image yet
@@ -215,7 +220,7 @@ function ItemCard({ item, sections, sectionId, onEdit, onDelete, onMove }) {
     <div className="admin-item-card">
       <div className="admin-card-thumb">
         {item.img
-          ? <img src={item.img.length === 24 ? `/api/images/${item.img}` : item.img} alt={item.name} />
+          ? <img src={resolveImg(item.img)} alt={item.name} />
           : <i className="fas fa-utensils" />}
       </div>
 

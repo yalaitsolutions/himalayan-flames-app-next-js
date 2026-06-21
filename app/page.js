@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import RevealEffects from "@/components/RevealEffects";
 import { getReviews, getChefPickDishes } from "@/lib/data";
+import { resolveImg } from "@/lib/img";
 import "@/styles/home.css";
 
 // Cache page for 60 seconds, then revalidate
@@ -86,7 +87,7 @@ export default async function Home() {
             {dishes.length > 0 ? dishes.map((d, i) => (
               <div className="dish-card reveal" data-delay={i * 100} key={d._id}>
                 <div className="dish-img">
-                  {d.img && <img src={d.img} alt={d.name} loading="lazy" />}
+                  {d.img && <img src={resolveImg(d.img)} alt={d.name} loading="lazy" />}
                   <span className="dish-badge">Chef's Pick</span>
                 </div>
                 <div className="dish-body">
