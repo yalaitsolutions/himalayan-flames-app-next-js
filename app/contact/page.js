@@ -92,7 +92,7 @@ export default function Contact() {
                 <div className="contact-info-icon"><i className="fas fa-envelope"></i></div>
                 <div>
                   <h4>Email</h4>
-                  <a href="mailto:info@thehimalayanflames.com">info@thehimalayanflames.com</a>
+                  <a href="mailto:thehimalayanflames@gmail.com">thehimalayanflames@gmail.com</a>
                   <p style={{ marginTop: ".3rem" }}>For catering, private events, or general inquiries</p>
                 </div>
               </div>
